@@ -2,6 +2,6 @@
 ___Update wsport and sshport___
 
 ```
-wget https://github.com/AtizaD/OPENSSH/raw/main/openssh_port.sh && chmod +x openssh_port.sh && ./openssh_port.sh
+wget https://raw.githubusercontent.com/AtizaD/OPENSSH/main/openssh_port.sh && chmod +x openssh_port.sh && ./openssh_port.sh
 ```
 Hardening OpenSSH port
