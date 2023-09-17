@@ -7,8 +7,7 @@ BLUE='\033[0;34m'  # Added blue color
 NC='\033[0m' # No Color
 
 # Prompt for a new port
-echo -e "${BLUE}Enter the new SSH port:${NC} "
-read -p "" new_port
+echo -e "${BLUE}Enter the new OPENSSH port:${NC} " read -p "" new_port
 
 # Construct the sed command to replace the DEFAULT_HOST port in wsproxy.py
 sed_command_wsproxy="s/DEFAULT_HOST = \"127.0.0.1:[0-9]*\"/DEFAULT_HOST = \"127.0.0.1:$new_port\"/"
