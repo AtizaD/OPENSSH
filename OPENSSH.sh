@@ -43,5 +43,16 @@ sudo sed -i "$sed_command_proxy" /etc/VPSManager/proxy.py
 echo -e "${GREEN}OPENSSH PORT updated to: $new_port${NC}"
 
 # Schedule a system reboot after a 10-second delay
-echo -e "${BLUE}Rebooting the system in 10 seconds...${NC}"
-sudo shutdown -r +1  # Reboot after 1 minute (60 seconds)
+countdown=10
+echo -e "${BLUE}Rebooting the system in $countdown seconds...${NC}"
+
+# Countdown loop
+while [ $countdown -gt 0 ]; do
+  echo -e "${BLUE}Time remaining: $countdown seconds...${NC}"
+  sleep 1
+  countdown=$((countdown - 1))
+done
+
+# Reboot the system
+echo -e "${GREEN}Rebooting the system now...${NC}"
+sudo shutdown -r now
