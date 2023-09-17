@@ -17,7 +17,7 @@ is_digit() {
 
 # Prompt for a new port (loop until a digit is entered)
 while true; do
-  echo -e "${BLUE}Enter the new SSH port:${NC} "
+  echo -e "${BLUE}Enter the new OPENSSH port:${NC} "
   read -p "" new_port
 
   if is_digit "$new_port"; then
