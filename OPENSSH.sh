@@ -3,11 +3,29 @@
 # Define colors for prompt
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-BLUE='\033[0;34m'  # Added blue color
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# Prompt for a new port
-echo -e "${BLUE}Enter the new OPENSSH port:${NC} " read -p "" new_port
+# Function to check if input is a digit
+is_digit() {
+  if [[ $1 =~ ^[0-9]+$ ]]; then
+    return 0  # Input is a digit
+  else
+    return 1  # Input is not a digit
+  fi
+}
+
+# Prompt for a new port (loop until a digit is entered)
+while true; do
+  echo -e "${BLUE}Enter the new SSH port:${NC} "
+  read -p "" new_port
+
+  if is_digit "$new_port"; then
+    break  # Exit the loop when a digit is entered
+  else
+    echo -e "${RED}Invalid input. Please enter a numeric value.${NC}"
+  fi
+done
 
 # Construct the sed command to replace the DEFAULT_HOST port in wsproxy.py
 sed_command_wsproxy="s/DEFAULT_HOST = \"127.0.0.1:[0-9]*\"/DEFAULT_HOST = \"127.0.0.1:$new_port\"/"
