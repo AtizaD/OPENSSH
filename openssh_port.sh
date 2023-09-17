@@ -16,3 +16,6 @@ sed_command_proxy="s/DEFAULT_HOST = '0.0.0.0:[0-9]*'/DEFAULT_HOST = '0.0.0.0:$ne
 sudo sed -i "$sed_command_proxy" /etc/VPSManager/proxy.py
 
 echo "OPENSSH PORT updated to: $new_port"
+
+
+
