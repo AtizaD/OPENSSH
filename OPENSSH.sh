@@ -17,7 +17,7 @@ is_digit() {
 
 # Prompt for a new port (loop until a digit is entered)
 while true; do
-  echo -e "${BLUE}Enter the new OPENSSH port:${NC} "
+  echo -e "${BLUE}Enter the new SSH port:${NC} "
   read -p "" new_port
 
   if is_digit "$new_port"; then
@@ -41,3 +41,7 @@ sudo sed -i "$sed_command_proxy" /etc/VPSManager/proxy.py
 
 # Display a colorful message
 echo -e "${GREEN}OPENSSH PORT updated to: $new_port${NC}"
+
+# Schedule a system reboot after a 10-second delay
+echo -e "${BLUE}Rebooting the system in 10 seconds...${NC}"
+sudo shutdown -r +1  # Reboot after 1 minute (60 seconds)
